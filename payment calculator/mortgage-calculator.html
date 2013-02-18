@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://followmetotheweb.apphb.com/mortgage-calculator.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title></title>
+         <!--use this to make mobile use up the whole device screen... ie. the device screen and the browserscreen 1to1-->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="jquery-1.5.1.min.js"></script>
+
+         <style type="text/css">
+            html, body, h1, form, fieldset, legend, ol, li {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: #ffffff;
+                color: #111111;
+                font-family: Georgia, "Times New Roman", Times, serif;
+                padding: 20px;
+            }
+            
+            .button{
+                text-decoration: none;
+                background-color: #ccd;
+                color: #a50;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
+                padding: 5px;
+                border: 2px solid #000;
+            }
+            
+            .button:hover{
+                background-color: #99a;
+                color: #eee;
+            }
+            
+            #calculated-payment{
+                background: #69b;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                padding: 20px;
+                width: 400px;
+                color: #222;
+            }
+            
+            #amortization-schedule{
+                background: #69b;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                padding: 20px;
+                width: 400px;
+            }
+            
+            #amortization-schedule td, #amortization-schedule th{
+                font-family: "Arial" "Arial" sans-serif;
+            }
+            
+            #amortization-schedule td{
+                text-align: right;
+                width: 100px;
+            }
+            
+            #amortization-schedule th{
+                text-align: center;
+                background-color: #eee;
+            }
+            
+            #amortization-schedule tr:nth-child(even){
+                background-color: #fff;
+            }
+            
+            #amortization-schedule tr:nth-child(odd){
+                background-color: #eee;
+            }
+            
+            fieldset {
+                border: none;
+                margin-bottom: 10px;
+            }
+
+            fieldset:last-of-type {
+                margin-bottom: 0;
+            }
+            
+            form#calculator {
+                background: #69b;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                padding: 20px;
+                width: 400px;
+            }
+            
+            form#calculator legend {
+                color: #383843;
+                font-size: 16px;
+                font-weight: bold;
+                padding-bottom: 10px;
+                text-shadow: 0 1px 1px #c0d576;
+            }
+            
+            form#calculator ol li {
+                background: #b9b9be;
+                background: rgba(255,255,255,.3);
+                border-color: #e3ebc3;
+                border-color: rgba(255,255,255,.6);
+                border-style: solid;
+                border-width: 2px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                line-height: 30px;
+                list-style: none;
+                padding: 5px 10px;
+                margin-bottom: 2px;
+            }
+            
+            form#calculator ol ol li {
+                background: none;
+                border: none;
+                float: left;
+            }
+            
+            /*
+                This log
+            */
+            @media only screen and (max-width:480px) {
+             
+                /* Your styles for this condition go here. */
+                label
+                {
+                    display: block;
+                }
+                
+                .exclude-on-mobile{
+                    display: none;
+                }
+                
+                form#calculator{
+                     width: 300px;                    
+                }
+                
+                #calculated-payment{
+                    width: 300px;
+                }
+            
+                #amortization-schedule{
+                    width: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h3 class="exclude-on-mobile">Ammortization and Payment Calculator</h3>
+        <form id="calculator">
+            <fieldset>
+                <legend class="exclude-on-mobile">Loan Information</legend>
+                <ol>
+                    <li>
+                        <label for="principal">Principal:</label>
+                        <input id="principal" type="text" class="input-control" value="10000" required="required">
+                    </li>
+                    <li>
+                        <label for="interest-rate">Interest Rate (e.g. 9.99)</label>
+                        <input id="interest-rate" type="text" class="input-control" value="10.0">
+                    </li>
+                    <li>
+                        <label for="term">Term (in months e.g. 48)</label>
+                        <input id="term" class="input-control" value="48">
+                    </li>
+                </ol>    
+                
+            </fieldset>
+            <fieldset>
+                <legend class="exclude-on-mobile">Submission</legend>
+                <ol>
+                    <li>
+                        <a href="#" id="get-schedule-button" class="button" onclick="handleClick()">SUBMIT</a>
+                    </li>
+                </ol>    
+            </fieldset>    
+        </form>
+        <div id="calculated-payment"></div>
+        <div id="amortization-schedule"></div>
+	    <script src="calculator.js"></script>
+</body></html>

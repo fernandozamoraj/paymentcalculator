@@ -1,0 +1,2 @@
+Why don't chrome extensions recognize javascript?
+Need to find out how to package it into a chrome app for the store.
